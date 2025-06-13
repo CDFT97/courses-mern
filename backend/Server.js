@@ -1,13 +1,12 @@
-import express, { json } from "express"; // <-- Solo importa express y json
+import express, { json } from "express";
 import cors from "cors";
 import { dbConnection } from "./database/config.js";
+import userRoutes from "./routes/users.js";
 
 class Server {
   constructor() {
     this.app = express();
     this.port = process.env.PORT;
-    // Routes here:
-    // this.usersRoutes = "/api/users";
 
     // Conectar a base de datos
     this.connectDB();
@@ -31,13 +30,11 @@ class Server {
     this.app.use(json());
 
     // Directorio Público
-    this.app.use(express.static("public")); // <-- Usa express.static directamente
+    this.app.use(express.static("public"));
   }
 
   routes() {
-    // Cambia esto para usar import en lugar de require
-    // import usuariosRouter from "../routes/usuarios.js";
-    // this.app.use(this.usuariosPath, usuariosRouter);
+    this.app.use("/api/users", userRoutes);
   }
 
   listen() {
