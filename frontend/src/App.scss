@@ -1,0 +1,7 @@
+@use './scss/index' as scss;
+
+#root {
+  h1 {
+    color: scss.$primary-color;
+  }
+}
