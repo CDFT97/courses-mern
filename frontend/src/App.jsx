@@ -1,12 +1,5 @@
-import './App.scss'
+import { AppRoutes } from "./routers/routers.jsx";
 
-function App() {
-
-  return (
-    <>
-      <h1>HOLLA MUNDO</h1>
-    </>
-  )
+export default function App() {
+  return <AppRoutes />;
 }
-
-export default App
