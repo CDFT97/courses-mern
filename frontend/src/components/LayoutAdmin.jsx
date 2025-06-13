@@ -1,38 +1,43 @@
 import { Outlet } from "react-router-dom";
-import { Layout } from "antd"
+import { Layout } from "antd";
+import AdminSidebar from "./AdminSidebar"; 
+import AdminNavbar from "./AdminNavbar";
 
 const LayoutAdmin = () => {
-
-  const { Header, Footer, Content } = Layout;
-
+  const { Header, Footer, Content, Sider } = Layout;
 
   return (
-    <Layout>
-      <h2>Sidebar Admin</h2>
-      <Layout>
-        <Header style={{ background: "#fff", padding: 0 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <h1>Header</h1>
-            <div>
-              <a href="#">Link</a>
-              <a href="#">Link</a>
-              {/* <a href="#">Link</a> */}
-            </div>
-          </div>
+
+    <Layout style={{ minHeight: '100vh' }}>
+ 
+      <Sider collapsible>
+        <AdminSidebar />
+      </Sider>
+
+      <Layout className=""> 
+        <Header className="w-auto">
+            <AdminNavbar />
         </Header>
 
-        <Content style={{ padding: "0 50px" }}>
-          <Outlet />
+        
+        <Content style={{ margin: '0 32px' }}>
+          <div
+            className=""
+            style={{
+              padding: 24,
+              minHeight: 360,
+              background: '#fff'
+            }}
+          >
+            <Outlet />
+          </div>
         </Content>
 
-        <Footer style={{ textAlign: "center" }}>
-          Footer
+        {/* Footer del área principal */}
+        <Footer style={{ textAlign: 'center' }}>
+          Footer ©{new Date().getFullYear()} Creado con Ant Design y Tailwind/Flowbite
         </Footer>
-
       </Layout>
-
-
-
     </Layout>
   );
 };
