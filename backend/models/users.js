@@ -26,3 +26,8 @@ const userSchema = new Schema({
 });
 
 export const User = mongoose.model('User', userSchema);
+
+export const ROLES = {
+  'user' : 'user',
+  'admin' : 'admin',
+}
